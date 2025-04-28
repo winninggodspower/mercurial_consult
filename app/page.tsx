@@ -1,103 +1,80 @@
-import Image from "next/image";
+import { AboutSection } from "@/components/about-section";
+import { FeaturesSection } from "@/components/feature-section";
+import { ParallaxShape } from "@/components/parallax-shape";
+import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/ui/navbar";
 
-export default function Home() {
+export default async function Home() {
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen relative">
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+      <div className="container mx-auto pt-20 pb-24 text-center relative">
+        <h1 className="text-[2.8rem] font-bold text-[#2F281E] mb-6">Empowering Young Learners with Skills</h1>
+        <p className="max-w-2xl mx-auto text-lg text-[#544837] mb-12">
+          Unlock the potential of young minds with our learner-centered digital skills content. Join us in providing
+          research support services to postgraduates and university faculties.
+        </p>
+        <Button
+          className="bg-primary hover:bg-blue-700 rounded-sm !py-6 px-10 hover:cursor-pointer"
+        >Contact Us
+        </Button>
+
+        {/* Purple curved shape in top left */}
+        <ParallaxShape speed={-0.05} className="absolute top-40 left-0 w-48 h-48 opacity-80 z-0 float-slow">
+          <img src="/images/objects/Object (1).png" alt="" />
+        </ParallaxShape>
+
+        {/* Purple triangle shape in top right */}
+        <ParallaxShape speed={0.1} className="absolute top-48 right-0 w-64 h-64 opacity-80 z-0 float float-delay-2">
+          <img src="/images/objects/Object.png" alt="" />
+        </ParallaxShape>
+
+        {/* Spiral shape */}
+        <ParallaxShape speed={0.07} className="absolute bottom-96 right-0 w-32 h-32 opacity-60 z-0 float-slow float-delay-3">
+          <img src="/images/objects/Object (2).png" alt="" />
+        </ParallaxShape>
+
+        {/* Circle shape in bottom left */}
+        <ParallaxShape speed={0.15} className="absolute bottom-64 left-28 w-24 h-24 opacity-60 z-0 float-reverse float-delay-1">
+          <img src="/images/objects/Object (3).png" alt="" />
+        </ParallaxShape>
+
+        {/* Image grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-14 max-w-5xl mx-auto">
+          <div className="rounded-lg overflow-hidden">
+            <img
+              src="/images/Rectangle1.png"
+              alt="Child with educational toys"
+              className="w-full h-auto"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <div className="rounded-lg overflow-hidden mt-80">
+            <img src="/images/Rectangle2.png" alt="Child reading on tablet" className="w-full h-auto" />
+          </div>
+          <div className="rounded-lg overflow-hidden mt-40">
+            <img
+              src="/images/Rectangle3.png"
+              alt="Child working on electronics project"
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden">
+            <img
+              src="/images/Rectangle4.png"
+              alt="Child working on electronics project"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      {/* About Us Section */}
+      <AboutSection />
+
+      {/* Features Section */}
+      <FeaturesSection />
+    </main>
   );
 }
